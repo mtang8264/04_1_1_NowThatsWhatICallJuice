@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{57917EEB-DC7A-58FA-D811-FBB4B898B805}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MeowBox.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameManager.cs" Line="57" Column="102" />
+      <File FileName="Assets/Scripts/TheScript.cs" Line="24" Column="18" />
+      <File FileName="Assets/Scripts/MeowBox.cs" Line="8" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

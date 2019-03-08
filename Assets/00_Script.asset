@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff2d2961b8104a078bd286253cc4fd7, type: 3}
+  m_Name: 00_Script
+  m_EditorClassIdentifier: 
+  script:
+  - line: Hey. How's it been going?
+    isQuestion: 1
+    answers:
+    - text: I've been good.
+      statImpacts:
+      - name: Good
+        value: 1
+      response: I'm so glad to hear that.
+    - text: I've survived.
+      statImpacts:
+      - name: Sad
+        value: 1
+      response: Aww, I'm sorry.
+    - text: I have never stopped thinking about that day.
+      statImpacts:
+      - name: Creepy
+        value: 3
+      response: Um, okay....
+  - line: Well...
+    isQuestion: 0
+    answers: []
+  - line: I know the last time we talked, I didn't let you be my roomate...
+    isQuestion: 0
+    answers: []
+  - line: But as it turns out, it's harder than I thought to find a roommate as a
+      cat in this country.
+    isQuestion: 1
+    answers:
+    - text: I'm so sorry to hear that.
+      statImpacts:
+      - name: Good
+        value: 2
+      response: I thought we were making progress in this country.
+    - text: I was trying to tell you.
+      statImpacts:
+      - name: Good
+        value: -0.5
+      - name: Sad
+        value: 0.5
+      response: Well, now I know.
+    - text: Are you still looking?
+      statImpacts: []
+      response: Yeah, I guess I am.
+    - text: Well, I guess you have no choice then.
+      statImpacts:
+      - name: Creepy
+        value: 2
+      response: Well, I wouldn't say that...
+  - line: So, I thought we should talk some more.
+    isQuestion: 0
+    answers: []
+  - line: I don't know...
+    isQuestion: 0
+    answers: []
+  - line: Maybe we could make this work!
+    isQuestion: 0
+    answers: []
