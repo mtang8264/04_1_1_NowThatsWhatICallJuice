@@ -19,6 +19,13 @@ public class GameManager : MonoBehaviour
     public Animator answerBox;
     public string unselectedColor, selectedColor;
 
+    public static GameManager me;
+
+    private void Awake()
+    {
+        me = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

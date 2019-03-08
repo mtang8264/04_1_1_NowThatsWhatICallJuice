@@ -68,5 +68,20 @@ MonoBehaviour:
     isQuestion: 0
     answers: []
   - line: Maybe we could make this work!
-    isQuestion: 0
-    answers: []
+    isQuestion: 1
+    answers:
+    - text: If you say so.
+      statImpacts:
+      - name: Good
+        value: -0.25
+      response: 
+    - text: Sure!
+      statImpacts:
+      - name: Good
+        value: 0.5
+      response: Awesome!
+    - text: Thank god!!...
+      statImpacts:
+      - name: Sad
+        value: 3
+      response: '...'
