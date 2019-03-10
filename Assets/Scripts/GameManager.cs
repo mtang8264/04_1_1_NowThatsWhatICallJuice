@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
     {
         if (overrideline == "")
         {
-            if (theScript.script[currentLine].isQuestion == false)
+            if (theScript.script[currentLine].isQuestion == false || !finishedTyping)
             {
                 if (finishedTyping)
                 {
