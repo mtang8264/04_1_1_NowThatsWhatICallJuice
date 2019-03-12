@@ -10,6 +10,7 @@ public class TransitionHandler : MonoBehaviour
     public float timeToChange;
     public int goal;
     public bool go;
+    public bool ah;
 
     private Image fade;
     public static TransitionHandler me;
@@ -23,6 +24,14 @@ public class TransitionHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(ah)
+        {
+            fade.color = Color.Lerp(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0), Time.time);
+            if(Time.time > 1)
+            {
+                ah = false;
+            }
+        }
         if(go)
         {
             time += Time.deltaTime;
