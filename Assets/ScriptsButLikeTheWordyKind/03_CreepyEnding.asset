@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff2d2961b8104a078bd286253cc4fd7, type: 3}
+  m_Name: 03_CreepyEnding
+  m_EditorClassIdentifier: 
+  script:
+  - line: So, it's been really "great" talking to you...
+    isQuestion: 0
+    answers: []
+    sprite: {fileID: 21300000, guid: e866c1195dca143679e5cd4b9c7248f4, type: 3}
+  - line: But I don't think I want to live with you...
+    isQuestion: 0
+    answers: []
+    sprite: {fileID: 21300000, guid: e866c1195dca143679e5cd4b9c7248f4, type: 3}
+  - line: But I have a feeling that I don't have much say in the matter...
+    isQuestion: 0
+    answers: []
+    sprite: {fileID: 21300000, guid: e866c1195dca143679e5cd4b9c7248f4, type: 3}

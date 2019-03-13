@@ -53,7 +53,11 @@ public class CustomButton : MonoBehaviour
     private void OnMouseDown()
     {
         click = true;
-        switch(type)
+        Click();
+    }
+    public void Click()
+    {
+        switch (type)
         {
             case Type.BREAKER:
                 Breaker.on = !Breaker.on;

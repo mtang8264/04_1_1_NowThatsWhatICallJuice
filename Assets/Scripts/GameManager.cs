@@ -20,10 +20,16 @@ public class GameManager : MonoBehaviour
     public string unselectedColor, selectedColor;
 
     public static GameManager me;
+    public bool done = false;
+
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+    public TheScript goodEnding, badEnding, sadEnding, creepyEnding;
 
     private void Awake()
     {
         me = this;
+        Debug.Log(theScript.script.Count);
     }
 
     // Start is called before the first frame update
@@ -35,6 +41,65 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(theScript == goodEnding ||
+            theScript == badEnding ||
+            theScript == sadEnding ||
+            theScript == creepyEnding)
+        {
+            if(currentLine>2 && finishedTyping && Input.GetKeyDown(KeyCode.Return))
+            {
+                TransitionHandler.me.go = true;
+            }
+        }
+
+        if(currentLine == theScript.script.Count && !done)
+        {
+            overrideline = "";
+            finishedTyping = false;
+            done = true;
+            currentLine = 0;
+            currentCharacter = 0;
+
+            float good = 0;
+            float sad = 0;
+            float creepy = 0;
+            for(int i = 0; i < stats.Count; i ++)
+            {
+                if(stats[i].name == "Good")
+                {
+                    good += stats[i].value;
+                }
+                if(stats[i].name == "Sad")
+                {
+                    sad += stats[i].value;
+                }
+                if(stats[i].name == "Creepy")
+                {
+                    creepy += stats[i].value;
+                }
+            }
+            if(good > sad + creepy)
+            {
+                theScript = goodEnding;
+            }
+            else if(sad > good + creepy)
+            {
+                theScript = sadEnding;
+            }
+            else if(creepy > good + sad)
+            {
+                theScript = creepyEnding;
+            }
+            else if(good <= 0)
+            {
+                theScript = badEnding;
+            }
+            else
+            {
+                theScript = badEnding;
+            }
+        }
+
         // Type character by character until you're done
         if(!finishedTyping)
         {
@@ -96,7 +161,10 @@ public class GameManager : MonoBehaviour
         // Next line on enter press
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            Next();
+            if (currentLine < theScript.script.Count)
+            {
+                Next();
+            }
         }
         // Up and down
         if(Input.GetKeyDown(KeyCode.DownArrow))
@@ -127,6 +195,8 @@ public class GameManager : MonoBehaviour
                 if (finishedTyping)
                 {
                     currentLine++;
+                    spriteRenderer.sprite = theScript.script[currentLine].sprite;
+                    animator.Play("Shake");
                     currentCharacter = 0;
                     finishedTyping = false;
                 }
@@ -142,6 +212,15 @@ public class GameManager : MonoBehaviour
                     AddStat(theScript.script[currentLine].answers[selection].statImpacts[i]);
                 }
                 overrideline = theScript.script[currentLine].answers[selection].response;
+                spriteRenderer.sprite = theScript.script[currentLine].answers[selection].sprite;
+                animator.Play("Shake");
+
+                if (overrideline == "")
+                {
+                    currentLine++;
+                    spriteRenderer.sprite = theScript.script[currentLine].sprite;
+                    animator.Play("Shake");
+                }
                 currentCharacter = 0;
                 finishedTyping = false;
                 answerBox.SetBool("Visible", false);
@@ -152,6 +231,8 @@ public class GameManager : MonoBehaviour
             if(finishedTyping)
             {
                 currentLine++;
+                spriteRenderer.sprite = theScript.script[currentLine].sprite;
+                animator.Play("Shake");
                 currentCharacter = 0;
                 finishedTyping = false;
                 overrideline = "";
@@ -165,15 +246,18 @@ public class GameManager : MonoBehaviour
 
     public void AddStat(Stat stat)
     {
+        bool newStat = true;
         for (int i = 0; i < stats.Count;i ++)
         {
             if(stats[i].name == stat.name)
             {
                 stats[i].value += stat.value;
+                newStat = false;
                 break;
             }
         }
-        stats.Add(stat);
+        if(newStat)
+            stats.Add(stat);
     }
 }
 
